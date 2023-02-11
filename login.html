@@ -1,0 +1,52 @@
+{%include "base2.html" %}
+{%block content%}
+<nav>
+    <div align="center">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/login">Login</a>
+            </li>
+            <li>
+                <a href="/signup">Signup</a>
+            </li>
+        </ul>  
+    </div>
+</nav>
+<div class="form-container">
+    <div class="box">
+        <div class="form">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+            <form action="/login" method="post">
+                <h2>Login</h2>
+                <div class="inputBox">
+                    <input type="text" name="username" required>
+                    <span>Username</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required>
+                    <span>Password</span>
+                    <i></i>
+                </div>
+                <div class="links">
+                    <a href="#">Forgotten password</a>
+                    <a href="#">Login</a>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+<footer align="center">
+    <br/>IAI-Togo 2022-23. Deuxième année Tronc Commun Groupe C. Projet Python Flask<br/><br/> 
+</footer>
+{%endblock%}
